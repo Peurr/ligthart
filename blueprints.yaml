@@ -1,0 +1,13 @@
+name: peerligthart-v1
+version: 1.0.0
+description: "My first ever Grav theme"
+icon: empire
+author:
+  name: Peer Ligthart
+  email: me@peerligthart.com
+  url: https://peerligthart.com
+homepage: https://github.com/Peurr/peerligthart-v1
+demo: https://peerligthart.com
+keywords: responsive, html5, css3, bootstrap, jquery
+bugs: https://github.com/Peurr/peerligthart-v1/issues
+license: MIT
