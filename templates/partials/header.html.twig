@@ -1,0 +1,25 @@
+<nav class="nav navbar-fixed-top navbar-light bg-primary">
+    <div class="container">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#top-nav">
+            <i class="fa fa-bars">
+            </i>
+        </button>
+        <div class="collapse navbar-toggleable-xs" id="top-nav">
+            <a class="navbar-brand" href="#">
+                Ligthart
+            </a>
+            <ul class="nav navbar-nav pull-xs-right">
+                {% for page in pages.children %}
+	                {% if page.visible %}
+	                {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+	                <li class="nav-item {{ current_page }}">
+	                    <a href="{{ page.url }}" class="nav-link">
+	                        {{ page.menu }}
+	                    </a>
+	                </li>
+	                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

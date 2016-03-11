@@ -22,15 +22,6 @@
         	{{ assets.css() }}
         {% endblock %}
 
-		{% endblock head %}
-	</head>
-	<body>
-
-		{# Include header file #}
-		{% include 'partials/header.html.twig' %}
-
-        {% block bottom %}
-
         {% block javascripts %}
             {# Including JQuery #}
             {% do assets.add('theme://assets/bower_components/jquery/dist/jquery.min.js', 101) %}
@@ -45,6 +36,12 @@
             {{ assets.js() }}
         {% endblock %}
 
-        {% end block bottom %}
+		{% endblock head %}
+	</head>
+	<body>
+
+		{# Include header file #}
+		{% include 'partials/header.html.twig' %}
+
 	</body>
 </html>
