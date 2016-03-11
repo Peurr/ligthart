@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block head %}
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		{% if header.description %}
+		<meta name="description" content="{{ header.description }}" />
+		{% else %}
+		<meta name="description" content="{{ site.description }}" />
+		{% endif %}
+        {% if header.robots %}
+        <meta name="robots" content="{{ header.robots }}">
+        {% endif %}
+
+        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+
+        {% block stylesheets %}
+        	{# Core CSS including Bootstrap v4, font-awesome and more #}
+        	{% do assets.add('theme://assets/css/styles.css', 101)%}
+
+        	{{ assets.css() }}
+        {% endblock %}
+
+		{% endblock head %}
+	</head>
+	<body>
+
+		{# Include header file #}
+		{% include 'partials/header.html.twig' %}
+
+        {% block bottom %}
+
+        {% block javascripts %}
+            {# Including JQuery #}
+            {% do assets.add('theme://assets/bower_components/jquery/dist/jquery.min.js', 101) %}
+            {# Including BootstrapJS #}
+            {% do assets.add('theme://assets/bower_components/bootstrap/dist/js/bootstrap.min.js', 100) %}
+
+            {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
+                {% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
+                {% do assets.add('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') %}
+            {% endif %}
+
+            {{ assets.js() }}
+        {% endblock %}
+
+        {% end block bottom %}
+	</body>
+</html>
